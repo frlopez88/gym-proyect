@@ -1,5 +1,5 @@
 import React from 'react'
-import { useState , useEffect} from 'react'
+import { useState, useEffect } from 'react'
 
 export const TrainersTable = () => {
 
@@ -22,22 +22,24 @@ export const TrainersTable = () => {
         setTrainers(responseData)
     }
 
-    useEffect( ()=>{
+    useEffect(() => {
         getTrainers()
-    }, [] )
+    }, [])
 
     return (
         <>
-
+            <h1>Trainers Report</h1>
             <table className='table'>
                 <thead>
-                    <th>Trainer Id</th>
-                    <th>Name</th>
-                    <th>Phone</th>
-                    <th>Specialization</th>
+                    <tr>
+                        <th>Trainer Id</th>
+                        <th>Name</th>
+                        <th>Phone</th>
+                        <th>Specialization</th>
+                    </tr>
                 </thead>
                 <tbody>
-                    {  trainers.map( (item)=>(
+                    {trainers.map((item) => (
                         <tr key={item.trainer_id} >
                             <td>{item.trainer_id}</td>
                             <td>{item.name}</td>
@@ -47,7 +49,7 @@ export const TrainersTable = () => {
                     ))}
                 </tbody>
             </table>
-        
+
         </>
     )
 }
